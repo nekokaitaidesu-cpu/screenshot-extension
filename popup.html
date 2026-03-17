@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 260px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fff;
+    }
+    .title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-label {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .format-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .format-btn {
+      flex: 1;
+      padding: 8px 0;
+      border: 2px solid #e0e0e0;
+      background: #fff;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: #555;
+      transition: all 0.15s;
+    }
+    .format-btn:hover { border-color: #aaa; }
+    .format-btn.active {
+      border-color: #4285f4;
+      color: #4285f4;
+      background: #f0f6ff;
+    }
+    #startBtn {
+      width: 100%;
+      padding: 11px;
+      background: #4285f4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    #startBtn:hover { background: #3574e2; }
+    #startBtn:active { background: #2b66d1; }
+    .note {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #999;
+      line-height: 1.6;
+    }
+    #status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #4285f4;
+      text-align: center;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">📸 Region Screenshot</div>
+
+  <div class="section-label">保存形式</div>
+  <div class="format-group">
+    <button class="format-btn active" data-format="png">PNG</button>
+    <button class="format-btn" data-format="jpeg">JPG</button>
+  </div>
+
+  <button id="startBtn">▶ 範囲選択を開始</button>
+  <div id="status"></div>
+
+  <div class="note">
+    ① 始点クリック → ② 終点クリック<br>
+    スクロールして画面外の範囲もOK
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

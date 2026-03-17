@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Region Screenshot v5 Stitch-Fixed",
+  "version": "5.0",
+  "description": "2点クリックで範囲指定・縦長ページも継ぎ目なしキャプチャ",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "tabs"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Region Screenshot v5"
+  }
+}
