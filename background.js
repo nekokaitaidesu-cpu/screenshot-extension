@@ -9,9 +9,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     captureRegion(tabId, windowId, msg.rect, msg.format)
       .then(dataUrl => {
         const ext = msg.format === 'jpeg' ? 'jpg' : 'png';
+        const folder = (msg.folder || 'Screenshots').replace(/[\\\/]+$/, '');
         chrome.downloads.download({
           url: dataUrl,
-          filename: `screenshot_${formatDate()}.${ext}`,
+          filename: `${folder}/screenshot_${formatDate()}.${ext}`,
           saveAs: false
         });
         chrome.tabs.sendMessage(tabId, { action: 'captureComplete' });

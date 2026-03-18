@@ -6,6 +6,7 @@ if (!window.__regionSS) {
 
   let state = 'idle'; // idle | waiting_first | waiting_second | capturing
   let format = 'png';
+  let folder = 'Screenshots';
   let point1 = null;
 
   // UI要素
@@ -24,6 +25,7 @@ if (!window.__regionSS) {
         state = 'idle';
       }
       format = msg.format || 'png';
+      folder = msg.folder || 'Screenshots';
       startCapture();
       sendResponse && sendResponse({ ok: true });
     } else if (msg.action === 'captureComplete') {
@@ -153,7 +155,7 @@ if (!window.__regionSS) {
       }
 
       showProcessing();
-      chrome.runtime.sendMessage({ action: 'doCapture', rect, format });
+      chrome.runtime.sendMessage({ action: 'doCapture', rect, format, folder });
     }
   }
 

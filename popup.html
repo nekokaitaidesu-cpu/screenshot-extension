@@ -77,10 +77,38 @@
       text-align: center;
       min-height: 18px;
     }
+    .folder-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .folder-prefix {
+      font-size: 11px;
+      color: #999;
+      white-space: nowrap;
+    }
+    #folderInput {
+      flex: 1;
+      padding: 6px 8px;
+      border: 2px solid #e0e0e0;
+      border-radius: 7px;
+      font-size: 12px;
+      color: #333;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #folderInput:focus { border-color: #4285f4; }
   </style>
 </head>
 <body>
   <div class="title">📸 Region Screenshot</div>
+
+  <div class="section-label">保存フォルダ（Downloads内）</div>
+  <div class="folder-row">
+    <span class="folder-prefix">Downloads /</span>
+    <input id="folderInput" type="text" value="Screenshots" placeholder="Screenshots" spellcheck="false">
+  </div>
 
   <div class="section-label">保存形式</div>
   <div class="format-group">
